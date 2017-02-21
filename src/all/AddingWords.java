@@ -1,4 +1,4 @@
-package com.company;
+package all;
 import java.util.*;
 public class AddingWords {
 
