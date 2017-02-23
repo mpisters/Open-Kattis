@@ -1,4 +1,3 @@
-package all;
 import java.util.*;
 public class AddingWords {
 
@@ -61,8 +60,6 @@ public class AddingWords {
                             unknown = "";
                         }
                         break;
-                    default:
-                        i.next();
                 }
             }
         }
