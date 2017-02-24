@@ -15,7 +15,7 @@ public class AddingWords {
             Iterator<String> i = list.iterator();
             String item = i.next();
             int total = 0;
-            String unknown = "";
+            String stop = "";
             String symbol = "";
             int count = 0;
             while(i.hasNext()){
@@ -36,28 +36,28 @@ public class AddingWords {
                         if (word.equals("+") || word.equals("-")){
                             symbol = word;
                         }
-                        if (word.length() > 1 && map.containsKey(word) && !unknown.equals("unknown")) {
+                        if (word.length() > 1 && map.containsKey(word) && !stop.equals("stop")) {
                             if (symbol.equals("+") || count == 0) {
                                 total += map.get(word);
 
                             } else {
                                 total -= map.get(word);
                             }
-                        } else if (!map.containsKey(word) && !unknown.equals("unknown") && word.length() > 1){
-                            unknown += "unknown";
+                        } else if (!map.containsKey(word) && !stop.equals("stop") && word.length() > 1){
+                            stop += "stop";
                         }
                         count++;
                         if (word.equals("=")){
                             String answer = "";
-                            if (!unknown.equals("unknown") && map2.containsKey(total)){
+                            if (!stop.equals("stop") && map2.containsKey(total)){
                                 answer += map2.get(total);
                             } else {
-                                answer += "unknown";
+                                answer += "stop";
                             }
                             list.removeFirst();
                             System.out.println(String.join(" ", list) + " " + answer);
                             total = 0;
-                            unknown = "";
+                            stop = "";
                         }
                         break;
                 }
